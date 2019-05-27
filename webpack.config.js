@@ -4,6 +4,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: './src/index.js',
   mode: 'development',
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -24,6 +25,10 @@ module.exports = {
             options: {}
           }
         ]
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
